@@ -16,6 +16,7 @@
 #include <QPointer>
 #include <QTime>
 #include <QTimer>
+#include <QToolTip>
 
 #ifdef Q_OS_WIN
 #include <windows.h>
@@ -218,6 +219,7 @@ void TerminalStyle::retheme()
     applyTheme(systemIsDark());
     logLine(QStringLiteral("system theme changed -> %1").arg(gDark ? "dark" : "light"));
     QApplication::setPalette(standardPalette());
+    QToolTip::setPalette(standardPalette());   // tooltips keep their own palette
     // the tui theme uses palette(...) which is resolved when the sheet is applied: re-apply it
     if (auto *app = qobject_cast<QApplication *>(QCoreApplication::instance()))
         if (!app->styleSheet().isEmpty())
@@ -268,6 +270,7 @@ void TerminalStyle::polish(QApplication *app)
 {
     QProxyStyle::polish(app);
     app->setPalette(standardPalette());
+    QToolTip::setPalette(standardPalette());   // otherwise tooltips keep the system's black text
     app->setFont(monoFont());
     if (!m_watcher) {
         auto *watcher = new ThemeWatcher(this);

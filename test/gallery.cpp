@@ -20,6 +20,7 @@
 #include <QStyleFactory>
 #include <QTabWidget>
 #include <QTextStream>
+#include <QToolTip>
 #include <windows.h>
 #include <dwmapi.h>
 #include <QTreeWidget>
@@ -115,6 +116,8 @@ int main(int argc, char **argv)
         out << "dwm darkmode=" << dark << " hr=" << Qt::hex << quint32(a)
             << " caption=" << quint32(cap) << " hr=" << quint32(b) << Qt::dec << "\n";
     }
+    out << "tooltip text=" << QToolTip::palette().color(QPalette::ToolTipText).name()
+        << " base=" << QToolTip::palette().color(QPalette::ToolTipBase).name() << "\n";
     out << "saved " << outPath << "\n";
     out.flush();
 
