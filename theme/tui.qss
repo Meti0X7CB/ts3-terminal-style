@@ -1,0 +1,68 @@
+/*
+ * tui — companion theme for the "Terminal" Qt style (terminalstyle.dll)
+ *
+ * Use with:  Options > Design > Style = Terminal, Theme = tui
+ *
+ * Keep this file to TeamSpeak-specific objects only. Any generic rule
+ * (QWidget, QPushButton, QCheckBox, ...) makes Qt's stylesheet engine take
+ * over drawing from the Terminal style and you lose the [x] / (*) look.
+ */
+
+QTreeView#ServerTreeView {
+	qproperty-rootIsDecorated: false;
+	alternate-background-color: transparent;
+}
+
+QTableView#clientsTableView, QTableView#banTableView {
+	qproperty-alternatingRowColors: true;
+}
+
+/* no watermark logos behind the chat / info panes */
+QTextEdit#InfoFrame,
+QTextEdit#ChatTab {
+	background-image: none;
+	background-color: palette(window);
+}
+
+QTextEdit#ChatLineEdit[helpTextVisible="true"]  { color: #8a8a96; }
+QTextEdit#ChatLineEdit[helpTextVisible="false"] { color: palette(text); }
+
+QStatusBar QLabel { padding: 0px 3px; color: #8a8a96; }
+
+/* the blue gradient banners in bookmarks / identities / account dialogs */
+QLabel#bookmarksBanner, QLabel#identitiesBanner, QLabel#accountLoginBanner, QLabel#accountCreateBanner {
+	background: palette(window);
+	color: palette(window-text);
+	padding-left: 8px;
+	qproperty-minimumSize: 0px 32px;
+}
+
+QLabel#accountLoginBanner, QLabel#accountCreateBanner {
+	qproperty-minimumSize: 420px 32px;
+}
+
+QWidget#HeadlineLabel { background-color: palette(window); }
+
+QLabel#OptionsHeadlineTitleLabel       { font-size: 14pt; color: palette(window-text); }
+QLabel#OptionsHeadlineDescriptionLabel { color: #8a8a96; }
+
+QLabel#appNameLabel { color: palette(window-text); font-size: 24pt; }
+QLabel#NewsLeftLabel { padding-right: 6px; }
+
+com--teamspeak--ui--ServerIntegrationsWidget QWidget#ExistingServerIntegration,
+com--teamspeak--ui--ServerIntegrationsWidget QWidget#AvailableServerIntegration,
+com--teamspeak--ui--ServerIntegrationsWidget com--teamspeak--ui--IntegrationBubble {
+	background: palette(base);
+}
+
+com--teamspeak--ui--ServerIntegrationsWidget com--teamspeak--ui--IntegrationResponseWidget {
+	background: palette(window);
+}
+
+com--teamspeak--ui--ServerIntegrationsWidget com--teamspeak--ui--ErrorIndicator {
+	background: #c0504d;
+}
+
+com--teamspeak--ui--ErrorIndicator QLabel#IntegrationErrorIndicatorLabel {
+	color: palette(window-text);
+}

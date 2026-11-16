@@ -1,0 +1,55 @@
+/*
+ * tui — chat log stylesheet (Qt rich-text subset), works on light and dark.
+ * Plain text inherits the palette text colour; only mid-tones are hard-coded.
+ */
+
+p { padding: 0px; margin: 0px; }
+
+.TextMessage_Time { color: #8a8a96; }
+
+.TextMessage_Normal,
+.TextMessage_Connected,
+.TextMessage_ClientConnected,
+.TextMessage_ClientJoined,
+.TextMessage_Disconnected,
+.TextMessage_ClientDisconnected,
+.TextMessage_ClientSwitched,
+.TextMessage_ClientLeft,
+.TextMessage_ChannelCreated,
+.TextMessage_ChannelDeleted,
+.TextMessage_ChannelEdited,
+.TextMessage_ChannelMoved,
+.TextMessage_ServerEdited,
+.TextMessage_GroupAssigned,
+.TextMessage_GroupRevoked,
+.TextMessage_TalkPowerAssigned,
+.TextMessage_TalkPowerRevoked,
+.TextMessage_TalkPowerRequested,
+.TextMessage_BeginHistory,
+.TextMessage_EndHistory { color: #8a8a96; }
+
+/* names & links: inherit text colour, bold, no underline */
+.TextMessage_UserLink,
+.TextMessage_ChannelLink,
+.TextMessage_ServerLink,
+.TextMessage_HostName,
+.TextMessage_OfflineLink { font-weight: bold; text-decoration: none; }
+
+.TextMessage_Message.Blocked .TextMessage_Text { color: #8a8a96; }
+
+/* attention colours: mid-tones readable on both backgrounds */
+.TextMessage_Welcome,
+.TextMessage_HostMessage,
+.TextMessage_Poke { color: #c08a1e; }
+
+.TextMessage_ClientDropped,
+.TextMessage_ClientKicked,
+.TextMessage_ClientBanned,
+.TextMessage_ServerError { color: #c0504d; }
+
+.InfoFrame_Title .InfoFrame_CustomNick { font-weight: bold; }
+.InfoFrame_Table td.Label { color: #8a8a96; padding-right: 12px; }
+.Highlight, .InfoFrame_Table td.Highlight { font-weight: bold; }
+.Important, .InfoFrame_Table td.Important { color: #c0504d; }
+.Active, .InfoFrame_Table td.Active { color: #4f9a5a; }
+.Inactive, .InfoFrame_Table td.Inactive { color: #8a8a96; }
