@@ -36,6 +36,20 @@ try {
     if (Test-Path $tuiDir) { Remove-Item $tuiDir -Recurse -Force }
     Copy-Item (Join-Path $styles 'default') $tuiDir -Recurse
 
+    # The stock tooltip/info templates hard-code colours meant for a white background
+    # (blue, red, darkRed). Swap them for tones that read on both light and dark.
+    Get-ChildItem $tuiDir -Filter '*.tpl' | ForEach-Object {
+        $text = [IO.File]::ReadAllText($_.FullName)
+        $new = [regex]::Replace($text, '(?i)color\s*:\s*(darkred|red|blue)\b', {
+            param($m)
+            switch ($m.Groups[1].Value.ToLower()) {
+                'blue'  { 'color: #7287fd' }
+                default { 'color: #c0504d' }
+            }
+        })
+        if ($new -ne $text) { [IO.File]::WriteAllText($_.FullName, $new) }
+    }
+
     $mono = Join-Path $gfx 'default_mono_2014.zip'
     if (Test-Path $mono) {
         New-TerminalIconPack -Source $mono -Destination (Join-Path $gfx 'terminal.zip')

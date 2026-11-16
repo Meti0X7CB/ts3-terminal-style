@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(terminalstyle VERSION 1.0.0 LANGUAGES CXX)
+project(terminalstyle VERSION 1.0.1 LANGUAGES CXX)
 
 # Static C++ runtime: the plugin works without the Visual C++ redistributable.
 # Safe here because nothing allocated by our CRT is freed by Qt's (and vice versa).
