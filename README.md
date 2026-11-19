@@ -1,6 +1,24 @@
 # Terminal style for TeamSpeak 3
 
+[![Latest release](https://img.shields.io/github/v/release/Meti0X7CB/ts3-terminal-style)](https://github.com/Meti0X7CB/ts3-terminal-style/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-lightgrey)
+![TeamSpeak](https://img.shields.io/badge/TeamSpeak-3.5%20%7C%203.6-2580c3)
+
 A flat, monospace, TUI-looking theme for the TeamSpeak 3 desktop client on Windows.
+
+![Dark and light mode](docs/preview.png)
+
+<sub>Dark and light mode side by side. The style switches automatically with your Windows app mode.</sub>
+
+<table>
+  <tr>
+    <td><img src="docs/dark_menu.png" alt="Menu with [x] checkmarks, dark"></td>
+    <td><img src="docs/light_menu.png" alt="Menu with [x] checkmarks, light"></td>
+  </tr>
+</table>
+
+**[Download the latest release →](https://github.com/Meti0X7CB/ts3-terminal-style/releases/latest)**
 
 - Checkboxes draw as `[x]` / `[ ]`, radio buttons as `(*)` / `( )`, group boxes as line frames
   with the title set into the border, progress bars as cells.
